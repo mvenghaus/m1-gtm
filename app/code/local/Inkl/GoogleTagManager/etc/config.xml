@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Inkl_GoogleTagManager>
+            <version>0.1.0</version>
+        </Inkl_GoogleTagManager>
+    </modules>
+    <global>
+        <blocks>
+            <inkl_googletagmanager>
+                <class>Inkl_GoogleTagManager_Block</class>
+            </inkl_googletagmanager>
+        </blocks>
+
+        <models>
+            <inkl_googletagmanager>
+                <class>Inkl_GoogleTagManager_Model</class>
+            </inkl_googletagmanager>
+        </models>
+
+        <helpers>
+            <inkl_googletagmanager>
+                <class>Inkl_GoogleTagManager_Helper</class>
+            </inkl_googletagmanager>
+        </helpers>
+    </global>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Inkl_GoogleTagManager>
+                    <files>
+                        <default>Inkl_GoogleTagManager.csv</default>
+                    </files>
+                </Inkl_GoogleTagManager>
+            </modules>
+        </translate>
+    </adminhtml>
+
+	<frontend>
+		<layout>
+			<updates>
+				<inkl_googletagmanager>
+					<file>inkl_googletagmanager.xml</file>
+				</inkl_googletagmanager>
+			</updates>
+		</layout>
+
+		<events>
+			<controller_action_layout_generate_blocks_after>
+				<observers>
+					<inkl_googletagmanager>
+						<type>singleton</type>
+						<class>inkl_googletagmanager/observer_route</class>
+						<method>controller_action_predispatch</method>
+					</inkl_googletagmanager>
+				</observers>
+			</controller_action_layout_generate_blocks_after>
+		</events>
+	</frontend>
+
+</config>

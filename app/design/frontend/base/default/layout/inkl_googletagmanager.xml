@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+	<default>
+
+		<block type="inkl_googletagmanager/dataLayer" name="googletagmanager.dataLayer"/>
+		<block type="inkl_googletagmanager/tag" name="googletagmanager.tag" after="googletagmanager.dataLayer"/>
+		<block type="inkl_googletagmanager/noscript" name="googletagmanager.noscript"/>
+
+		<reference name="head">
+			<action method="append" ifconfig="inkl_googletagmanager/general/enabled">
+				<block>googletagmanager.dataLayer</block>
+			</action>
+		</reference>
+
+		<reference name="head">
+			<action method="append" ifconfig="inkl_googletagmanager/general/enabled">
+				<block>googletagmanager.tag</block>
+			</action>
+		</reference>
+
+		<reference name="after_body_start">
+			<action method="append" ifconfig="inkl_googletagmanager/general/enabled">
+				<block>googletagmanager.noscript</block>
+			</action>
+
+		</reference>
+	</default>
+</layout>

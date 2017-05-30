@@ -1,0 +1,39 @@
+{
+	"name": "inkl/m1-gtm",
+	"type": "magento-module",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"secure-http": false,
+		"preferred-install": {
+			"*": "dist"
+		}
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "http://packages.inklammern.de"
+		}
+	],
+	"extra": {
+		"with-bootstrap-patch": false,
+		"map": [
+			[
+				"app/etc/modules/Inkl_GoogleTagManager.xml",
+				"app/etc/modules/Inkl_GoogleTagManager.xml"
+			],
+			[
+				"app/code/local/Inkl/GoogleTagManager",
+				"app/code/local/Inkl/GoogleTagManager"
+			],
+			[
+				"app/design/frontend/base/default/layout/inkl_googletagmanager.xml",
+				"app/design/frontend/base/default/layout/inkl_googletagmanager.xml"
+			]
+		]
+	},
+	"require": {
+		"magento-hackathon/magento-composer-installer": "*",
+		"inkl/lib-gtm": "@dev"
+	}
+}
