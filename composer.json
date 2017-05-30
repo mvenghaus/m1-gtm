@@ -16,6 +16,7 @@
 		}
 	],
 	"extra": {
+		"magento-root-dir": "./",
 		"with-bootstrap-patch": false,
 		"map": [
 			[
