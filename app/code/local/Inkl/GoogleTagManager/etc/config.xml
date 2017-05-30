@@ -48,15 +48,15 @@
 		</layout>
 
 		<events>
-			<controller_action_layout_generate_blocks_after>
+			<googletagmanager_render_tag_before>
 				<observers>
-					<inkl_googletagmanager>
+					<inkl_googletagmanager_googletagmanager_render_tag_before>
 						<type>singleton</type>
-						<class>inkl_googletagmanager/observer_route</class>
-						<method>controller_action_predispatch</method>
-					</inkl_googletagmanager>
+						<class>inkl_googletagmanager/observer</class>
+						<method>googletagmanager_render_tag_before</method>
+					</inkl_googletagmanager_googletagmanager_render_tag_before>
 				</observers>
-			</controller_action_layout_generate_blocks_after>
+			</googletagmanager_render_tag_before>
 		</events>
 	</frontend>
 

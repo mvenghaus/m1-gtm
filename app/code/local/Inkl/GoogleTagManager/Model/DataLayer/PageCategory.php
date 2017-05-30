@@ -5,27 +5,31 @@ use Inkl\GoogleTagManager\GoogleTagManager;
 class Inkl_GoogleTagManager_Model_DataLayer_PageCategory
 {
 
-	public function handleRouteInfo($routeInfo)
+	/**
+	 * @param GoogleTagManager $googleTagManager
+	 */
+	public function handle(GoogleTagManager $googleTagManager)
 	{
-		$pageCategory = $this->determineByRouteInfo($routeInfo);
+		$routePath = Mage::helper('inkl_googletagmanager/route')->getPath();
+		$pageCategory = $this->determine($routePath);
 
 		if ($pageCategory)
 		{
-			GoogleTagManager::getInstance()->getDataLayer()->addVariable('pageCategory', $pageCategory);
+			$googleTagManager->addDataLayerVariable('pageCategory', $pageCategory);
 		}
 	}
 
 	/**
-	 * @param string $routeInfo
+	 * @param string $routePath
 	 * @return string|null
 	 */
-	private function determineByRouteInfo($routeInfo)
+	private function determine($routePath)
 	{
-		if ($this->isHome($routeInfo)) return 'home';
-		if ($this->isCategoryView($routeInfo)) return 'category.view';
-		if ($this->isProductView($routeInfo)) return 'product.view';
-		if ($this->isCheckoutCart($routeInfo)) return 'checkout.cart';
-		if ($this->isCheckoutSuccess($routeInfo)) return 'checkout.success';
+		if ($this->isHome($routePath)) return 'home';
+		if ($this->isCategoryView($routePath)) return 'category.view';
+		if ($this->isProductView($routePath)) return 'product.view';
+		if ($this->isCheckoutCart($routePath)) return 'checkout.cart';
+		if ($this->isCheckoutSuccess($routePath)) return 'checkout.success';
 
 		return null;
 	}
