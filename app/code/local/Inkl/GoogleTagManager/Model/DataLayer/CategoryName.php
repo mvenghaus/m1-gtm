@@ -25,7 +25,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_CategoryName
 
 	private function isCategoryView()
 	{
-		return (Mage::helper('inkl_googletagmanager/route')->getPath() === 'catalog/category/index');
+		return (Mage::helper('inkl_googletagmanager/route')->getPath() === 'catalog/category/view');
 	}
 
 }
