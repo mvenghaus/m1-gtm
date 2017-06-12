@@ -45,10 +45,10 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 		foreach ($order->getAllVisibleItems() as $orderItem)
 		{
 			$products[] = [
-				'id' => $orderItem->getSku(),
+				'id' => Mage::helper('inkl_googletagmanager/product')->getSkuById($orderItem->getProductId()),
 				'name' => $orderItem->getName(),
 				'price' => round($orderItem->getPriceInclTax(), 2),
-				'qty' => (int)$orderItem->getQtyOrdered()
+				'quantity' => (int)$orderItem->getQtyOrdered()
 			];
 		}
 
