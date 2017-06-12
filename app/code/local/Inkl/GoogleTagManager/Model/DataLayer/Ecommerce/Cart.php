@@ -113,7 +113,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Cart
 		foreach (Mage::getSingleton('checkout/cart')->getQuote()->getAllVisibleItems() as $quoteItem)
 		{
 			$cartProductData = [
-				'id' => $this->getSku($quoteItem->getProductId()),
+				'id' => Mage::helper('inkl_googletagmanager/product')->getSkuById($quoteItem->getProductId()),
 				'name' => $quoteItem->getName(),
 				'price' => $quoteItem->getPriceInclTax(),
 				'quantity' => 0
@@ -129,20 +129,6 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Cart
 		}
 
 		return $cartProducts;
-	}
-
-	private function getSku($productId)
-	{
-		$collection = Mage::getResourceModel('catalog/product_collection')
-			->addAttributeToSelect('sku')
-			->addAttributeToFilter('entity_id', ['eq' => $productId]);
-
-		foreach ($collection as $product)
-		{
-			return $product->getSku();
-		}
-
-		return null;
 	}
 
 	private function isCheckoutCart()
