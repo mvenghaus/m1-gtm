@@ -16,7 +16,6 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 		}
 
 		$order = $this->getOrder();
-
 		$ecommerce = [
 			'purchase' => [
 				'actionField' => $this->getActionField($order),
@@ -24,7 +23,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 			]
 		];
 
-		$googleTagManager->addDataLayerVariable('ecommerce', $ecommerce);
+		$googleTagManager->addDataLayerVariable('ecommerce', $ecommerce, 'ecommerce_purchase');
 	}
 
 	private function getActionField(Mage_Sales_Model_Order $order)

@@ -2,7 +2,7 @@
 
 use Inkl\GoogleTagManager\GoogleTagManager;
 
-class Inkl_GoogleTagManager_Model_DataLayer_PageCategory
+class Inkl_GoogleTagManager_Model_DataLayer_PageType
 {
 
 	/**
@@ -11,11 +11,11 @@ class Inkl_GoogleTagManager_Model_DataLayer_PageCategory
 	public function handle(GoogleTagManager $googleTagManager)
 	{
 		$routePath = Mage::helper('inkl_googletagmanager/route')->getPath();
-		$pageCategory = $this->determine($routePath);
+		$pageType = $this->determine($routePath);
 
-		if ($pageCategory)
+		if ($pageType)
 		{
-			$googleTagManager->addDataLayerVariable('pageCategory', $pageCategory);
+			$googleTagManager->addDataLayerVariable('pageType', $pageType, 'page_type');
 		}
 	}
 
@@ -26,12 +26,13 @@ class Inkl_GoogleTagManager_Model_DataLayer_PageCategory
 	private function determine($routePath)
 	{
 		if ($this->isHome($routePath)) return 'home';
-		if ($this->isCategoryView($routePath)) return 'category.view';
-		if ($this->isProductView($routePath)) return 'product.view';
-		if ($this->isCheckoutCart($routePath)) return 'checkout.cart';
-		if ($this->isCheckoutSuccess($routePath)) return 'checkout.success';
+		if ($this->isCategory($routePath)) return 'category';
+		if ($this->isSearch($routePath)) return 'searchresults';
+		if ($this->isProduct($routePath)) return 'product';
+		if ($this->isCart($routePath)) return 'cart';
+		if ($this->isPurchase($routePath)) return 'purchase';
 
-		return null;
+		return 'other';
 	}
 
 	private function isHome($routeInfo)
@@ -41,22 +42,27 @@ class Inkl_GoogleTagManager_Model_DataLayer_PageCategory
 		return false;
 	}
 
-	private function isCategoryView($routeInfo)
+	private function isCategory($routeInfo)
 	{
 		return ($routeInfo === 'catalog/category/view');
 	}
 
-	private function isProductView($routeInfo)
+	private function isSearch($routeInfo)
+	{
+		return ($routeInfo === 'catalogsearch/result/index');
+	}
+
+	private function isProduct($routeInfo)
 	{
 		return ($routeInfo === 'catalog/product/view');
 	}
 
-	private function isCheckoutCart($routeInfo)
+	private function isCart($routeInfo)
 	{
 		return ($routeInfo === 'checkout/cart/index');
 	}
 
-	private function isCheckoutSuccess($routeInfo)
+	private function isPurchase($routeInfo)
 	{
 		return ($routeInfo === 'checkout/onepage/success');
 	}

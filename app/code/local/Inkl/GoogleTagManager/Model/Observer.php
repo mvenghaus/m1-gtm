@@ -10,7 +10,9 @@ class Inkl_GoogleTagManager_Model_Observer
 		/** @var GoogleTagManager $googleTagManager */
 		$googleTagManager = $observer->getEvent()->getGoogleTagManager();
 
-		Mage::getSingleton('inkl_googletagmanager/dataLayer_pageCategory')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_pageType')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_detail')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_cart')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_purchase')->handle($googleTagManager);
 	}
 
