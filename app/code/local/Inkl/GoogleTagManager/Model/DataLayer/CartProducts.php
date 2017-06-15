@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_CartProducts
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!$this->isCheckoutCart())
+		if (!Mage::helper('inkl_googletagmanager/route')->isCart())
 		{
 			return;
 		}
@@ -45,13 +45,5 @@ class Inkl_GoogleTagManager_Model_DataLayer_CartProducts
 
 		return array_values($cartProducts);
 	}
-
-
-
-	private function isCheckoutCart()
-	{
-		return (Mage::helper('inkl_googletagmanager/route')->getPath() === 'checkout/cart/index');
-	}
-
 
 }

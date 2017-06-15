@@ -10,4 +10,36 @@ class Inkl_GoogleTagManager_Helper_Route extends Mage_Core_Helper_Abstract
 		return sprintf('%s/%s/%s', $request->getModuleName(), $request->getControllerName(), $request->getActionName());
 	}
 
+	public function isHome()
+	{
+		if ($this->getPath() === 'cms/index/index' && Mage::getSingleton('cms/page')->getIdentifier() == 'home') return true;
+
+		return false;
+	}
+
+	public function isCategory()
+	{
+		return ($this->getPath() === 'catalog/category/view');
+	}
+
+	public function isSearch()
+	{
+		return ($this->getPath() === 'catalogsearch/result/index');
+	}
+
+	public function isProduct()
+	{
+		return ($this->getPath() === 'catalog/product/view');
+	}
+
+	public function isCart()
+	{
+		return ($this->getPath() === 'checkout/cart/index' || $this->getPath() === 'gomage_checkout/cart/index');
+	}
+
+	public function isPurchase()
+	{
+		return ($this->getPath() === 'checkout/onepage/success');
+	}
+
 }

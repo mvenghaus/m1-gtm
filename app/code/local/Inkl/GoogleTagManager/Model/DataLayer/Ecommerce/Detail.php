@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Detail
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!$this->isProductView())
+		if (!Mage::helper('inkl_googletagmanager/route')->isProduct())
 		{
 			return;
 		}
@@ -36,8 +36,4 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Detail
 		return Mage::registry('current_product');
 	}
 
-	private function isProductView()
-	{
-		return (Mage::helper('inkl_googletagmanager/route')->getPath() === 'catalog/product/view');
-	}
 }

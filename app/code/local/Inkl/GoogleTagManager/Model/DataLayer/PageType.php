@@ -10,9 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_PageType
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		$routePath = Mage::helper('inkl_googletagmanager/route')->getPath();
-		$pageType = $this->determine($routePath);
-
+		$pageType = $this->determine();
 		if ($pageType)
 		{
 			$googleTagManager->addDataLayerVariable('pageType', $pageType, 'page_type');
@@ -20,51 +18,22 @@ class Inkl_GoogleTagManager_Model_DataLayer_PageType
 	}
 
 	/**
-	 * @param string $routePath
-	 * @return string|null
+	 * @return string
 	 */
-	private function determine($routePath)
+	private function determine()
 	{
-		if ($this->isHome($routePath)) return 'home';
-		if ($this->isCategory($routePath)) return 'category';
-		if ($this->isSearch($routePath)) return 'searchresults';
-		if ($this->isProduct($routePath)) return 'product';
-		if ($this->isCart($routePath)) return 'cart';
-		if ($this->isPurchase($routePath)) return 'purchase';
+		$routeHelper = Mage::helper('inkl_googletagmanager/route');
+
+		if ($routeHelper->isHome()) return 'home';
+		if ($routeHelper->isCategory()) return 'category';
+		if ($routeHelper->isSearch()) return 'searchresults';
+		if ($routeHelper->isProduct()) return 'product';
+		if ($routeHelper->isCart()) return 'cart';
+		if ($routeHelper->isPurchase()) return 'purchase';
 
 		return 'other';
 	}
 
-	private function isHome($routeInfo)
-	{
-		if ($routeInfo === 'cms/index/index' && Mage::getSingleton('cms/page')->getIdentifier() == 'home') return true;
 
-		return false;
-	}
-
-	private function isCategory($routeInfo)
-	{
-		return ($routeInfo === 'catalog/category/view');
-	}
-
-	private function isSearch($routeInfo)
-	{
-		return ($routeInfo === 'catalogsearch/result/index');
-	}
-
-	private function isProduct($routeInfo)
-	{
-		return ($routeInfo === 'catalog/product/view');
-	}
-
-	private function isCart($routeInfo)
-	{
-		return ($routeInfo === 'checkout/cart/index');
-	}
-
-	private function isPurchase($routeInfo)
-	{
-		return ($routeInfo === 'checkout/onepage/success');
-	}
 
 }

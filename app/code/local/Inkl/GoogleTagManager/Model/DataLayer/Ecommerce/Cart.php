@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Cart
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!$this->isCheckoutCart())
+		if (!Mage::helper('inkl_googletagmanager/route')->isCart())
 		{
 			return;
 		}
@@ -129,11 +129,6 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Cart
 		}
 
 		return $cartProducts;
-	}
-
-	private function isCheckoutCart()
-	{
-		return (Mage::helper('inkl_googletagmanager/route')->getPath() === 'checkout/cart/index');
 	}
 
 	/**

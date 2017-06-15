@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_CategoryName
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!$this->isCategoryView())
+		if (!Mage::helper('inkl_googletagmanager/route')->isCategory())
 		{
 			return;
 		}
@@ -21,11 +21,6 @@ class Inkl_GoogleTagManager_Model_DataLayer_CategoryName
 	private function getCategory()
 	{
 		return Mage::registry('current_category');
-	}
-
-	private function isCategoryView()
-	{
-		return (Mage::helper('inkl_googletagmanager/route')->getPath() === 'catalog/category/view');
 	}
 
 }

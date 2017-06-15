@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!$this->isCheckoutSuccess())
+		if (!Mage::helper('inkl_googletagmanager/route')->isPurchase())
 		{
 			return;
 		}
@@ -60,8 +60,4 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 		return Mage::getSingleton('checkout/session')->getLastRealOrder();
 	}
 
-	private function isCheckoutSuccess()
-	{
-		return (Mage::helper('inkl_googletagmanager/route')->getPath() === 'checkout/onepage/success');
-	}
 }
