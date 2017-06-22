@@ -31,7 +31,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 		return [
 			'id' => $order->getIncrementId(),
 			'affiliation' => 'Online Shop',
-			'revenue' => round($order->getGrandTotal(), 2),
+			'revenue' => round($order->getSubtotal(), 2),
 			'tax' => round($order->getTaxAmount(), 2),
 			'shipping' => round($order->getShippingAmount(), 2),
 			'coupon' => (string)$order->getCouponCode()
@@ -47,7 +47,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 			$products[] = [
 				'id' => Mage::helper('inkl_googletagmanager/product')->getSkuById($orderItem->getProductId()),
 				'name' => $orderItem->getName(),
-				'price' => round($orderItem->getPriceInclTax(), 2),
+				'price' => round($orderItem->getPrice(), 2),
 				'quantity' => (int)$orderItem->getQtyOrdered()
 			];
 		}
