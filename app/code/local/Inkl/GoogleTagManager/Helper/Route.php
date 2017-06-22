@@ -36,6 +36,11 @@ class Inkl_GoogleTagManager_Helper_Route extends Mage_Core_Helper_Abstract
 	{
 		return ($this->getPath() === 'checkout/cart/index' || $this->getPath() === 'gomage_checkout/cart/index');
 	}
+	
+	public function isCheckout()
+	{
+		return ($this->getPath() === 'checkout/onepage/index' || $this->getPath() === 'mastercheckout/index/index');
+	}
 
 	public function isPurchase()
 	{
