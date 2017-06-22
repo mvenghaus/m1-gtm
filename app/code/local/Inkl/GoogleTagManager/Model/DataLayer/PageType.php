@@ -28,8 +28,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_PageType
 		if ($routeHelper->isCategory()) return 'category';
 		if ($routeHelper->isSearch()) return 'searchresults';
 		if ($routeHelper->isProduct()) return 'product';
-		if ($routeHelper->isCart()) return 'cart';
-		if ($routeHelper->isCheckout()) return 'checkout';
+		if ($routeHelper->isCart() || $routeHelper->isCheckout() return 'cart';
 		if ($routeHelper->isPurchase()) return 'purchase';
 
 		return 'other';
