@@ -14,4 +14,9 @@ class Inkl_GoogleTagManager_Helper_Config extends Mage_Core_Helper_Abstract
 	{
 		return Mage::getStoreConfig(self::XML_PATH_GENERAL_ID, $storeId);
 	}
+
+	public function getTagPlaceholder()
+	{
+		return '<!-- GOOGLE TAG MANAGER CODE PLACEHOLDER -->';
+	}
 }

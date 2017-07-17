@@ -48,6 +48,15 @@
 		</layout>
 
 		<events>
+			<controller_front_send_response_before>
+				<observers>
+					<inkl_googletagmanager_controller_front_send_response_before>
+						<class>inkl_googletagmanager/observer</class>
+						<method>controller_front_send_response_before</method>
+					</inkl_googletagmanager_controller_front_send_response_before>
+				</observers>
+			</controller_front_send_response_before>
+
 			<googletagmanager_render_tag_before>
 				<observers>
 					<inkl_googletagmanager_googletagmanager_render_tag_before>
