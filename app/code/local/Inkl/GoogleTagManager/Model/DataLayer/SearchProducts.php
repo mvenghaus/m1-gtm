@@ -32,7 +32,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_SearchProducts
 			$searchProducts[] = [
 				'id' => $product->getSku(),
 				'name' => $product->getName(),
-				'price' => $product->getFinalPrice(),
+				'price' => round($product->getFinalPrice(), 2),
 			];
 		}
 

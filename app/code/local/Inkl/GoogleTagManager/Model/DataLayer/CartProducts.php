@@ -31,7 +31,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_CartProducts
 			$cartProductData = [
 				'id' => $sku,
 				'name' => $quoteItem->getName(),
-				'price' => $quoteItem->getPriceInclTax(),
+				'price' => round($quoteItem->getPriceInclTax(), 2),
 				'quantity' => 0
 			];
 
