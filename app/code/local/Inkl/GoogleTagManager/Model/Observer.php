@@ -12,6 +12,7 @@ class Inkl_GoogleTagManager_Model_Observer
 		$googleTagManager = $observer->getEvent()->getGoogleTagManager();
 
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_pageType')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_currencyCode')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_categoryName')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_categoryProducts')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_cartProducts')->handle($googleTagManager);
