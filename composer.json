@@ -29,6 +29,10 @@
 			[
 				"app/design/frontend/base/default/layout/inkl_googletagmanager.xml",
 				"app/design/frontend/base/default/layout/inkl_googletagmanager.xml"
+			],
+			[
+				"skin/frontend/base/default/js/googletagmanager",
+				"skin/frontend/base/default/js/googletagmanager"
 			]
 		]
 	},

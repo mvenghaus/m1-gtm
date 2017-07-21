@@ -2,7 +2,7 @@
 
 use Inkl\GoogleTagManager\GoogleTagManager;
 
-class Inkl_GoogleTagManager_Model_DataLayer_SearchProducts
+class Inkl_GoogleTagManager_Model_DataLayer_Catalog_SearchProducts
 {
 
 	/**

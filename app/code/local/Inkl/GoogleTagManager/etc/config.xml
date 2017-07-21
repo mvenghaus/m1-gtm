@@ -38,35 +38,59 @@
         </translate>
     </adminhtml>
 
-	<frontend>
-		<layout>
-			<updates>
-				<inkl_googletagmanager>
-					<file>inkl_googletagmanager.xml</file>
-				</inkl_googletagmanager>
-			</updates>
-		</layout>
+    <frontend>
+        <layout>
+            <updates>
+                <inkl_googletagmanager>
+                    <file>inkl_googletagmanager.xml</file>
+                </inkl_googletagmanager>
+            </updates>
+        </layout>
 
-		<events>
-			<controller_front_send_response_before>
-				<observers>
-					<inkl_googletagmanager_controller_front_send_response_before>
-						<class>inkl_googletagmanager/observer</class>
-						<method>controller_front_send_response_before</method>
-					</inkl_googletagmanager_controller_front_send_response_before>
-				</observers>
-			</controller_front_send_response_before>
+        <events>
+            <controller_front_send_response_before>
+                <observers>
+                    <inkl_googletagmanager_controller_front_send_response_before>
+                        <class>inkl_googletagmanager/observer</class>
+                        <method>controller_front_send_response_before</method>
+                    </inkl_googletagmanager_controller_front_send_response_before>
+                </observers>
+            </controller_front_send_response_before>
 
-			<googletagmanager_render_tag_before>
-				<observers>
-					<inkl_googletagmanager_googletagmanager_render_tag_before>
-						<type>singleton</type>
-						<class>inkl_googletagmanager/observer</class>
-						<method>googletagmanager_render_tag_before</method>
-					</inkl_googletagmanager_googletagmanager_render_tag_before>
-				</observers>
-			</googletagmanager_render_tag_before>
-		</events>
-	</frontend>
+            <googletagmanager_render_tag_before>
+                <observers>
+                    <inkl_googletagmanager_googletagmanager_render_tag_before>
+                        <type>singleton</type>
+                        <class>inkl_googletagmanager/observer</class>
+                        <method>googletagmanager_render_tag_before</method>
+                    </inkl_googletagmanager_googletagmanager_render_tag_before>
+                </observers>
+            </googletagmanager_render_tag_before>
+        </events>
+    </frontend>
+
+    <default>
+        <inkl_googletagmanager>
+            <datalayer_global>
+                <page_type>1</page_type>
+                <currency_code>1</currency_code>
+            </datalayer_global>
+            <datalayer_catalog>
+                <category_name>1</category_name>
+                <category_products>1</category_products>
+                <search_keyword>1</search_keyword>
+                <search_products>1</search_products>
+                <cart_products>1</cart_products>
+            </datalayer_catalog>
+            <datalayer_ecommerce>
+                <detail>1</detail>
+                <cart>1</cart>
+                <purchase>1</purchase>
+            </datalayer_ecommerce>
+            <datalayer_event>
+                <addtocart>1</addtocart>
+            </datalayer_event>
+        </inkl_googletagmanager>
+    </default>
 
 </config>
