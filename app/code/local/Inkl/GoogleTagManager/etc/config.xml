@@ -87,6 +87,10 @@
                 <cart>1</cart>
                 <purchase>1</purchase>
             </datalayer_ecommerce>
+            <datalayer_customer>
+                <email>1</email>
+                <email_sha1>1</email_sha1>
+            </datalayer_customer>
             <datalayer_event>
                 <addtocart>1</addtocart>
             </datalayer_event>

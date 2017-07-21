@@ -162,6 +162,36 @@
                         </purchase>
                     </fields>
                 </datalayer_ecommerce>
+
+                <datalayer_customer translate="label">
+                    <label>DataLayer - Customer</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <email translate="label">
+                            <label>E-Mail</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email>
+                        <email_sha1 translate="label">
+                            <label>E-Mail (SHA1)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_sha1>
+                    </fields>
+                </datalayer_customer>
 {
                 <datalayer_event translate="label">
                     <label>DataLayer - Events</label>

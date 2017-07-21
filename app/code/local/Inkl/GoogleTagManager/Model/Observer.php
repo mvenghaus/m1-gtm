@@ -83,6 +83,18 @@ class Inkl_GoogleTagManager_Model_Observer
 		{
 			Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_purchase')->handle($googleTagManager);
 		}
+
+		/** customer */
+		if (Mage::helper('inkl_googletagmanager/config_dataLayer_customer')->isCustomerEmailEnabled())
+		{
+			Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_email')->handle($googleTagManager);
+		}
+
+		if (Mage::helper('inkl_googletagmanager/config_dataLayer_customer')->isCustomerEmailSha1Enabled())
+		{
+			Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailSha1')->handle($googleTagManager);
+		}
+
 	}
 
 }
