@@ -8,25 +8,6 @@
 			<action method="append" ifconfig="inkl_googletagmanager/general/enabled">
 				<block>googletagmanager.tag</block>
 			</action>
-
-			<action method="addItem" ifconfig="inkl_googletagmanager/datalayer_event/addtocart">
-				<type>skin_js</type>
-				<name>js/googletagmanager/event/addToCart.js</name>
-				<params/>
-			</action>
-
-			<action method="addItem" ifconfig="inkl_googletagmanager/datalayer_customer/email">
-				<type>skin_js</type>
-				<name>js/googletagmanager/customer/email.js</name>
-				<params/>
-			</action>
-
-			<action method="addItem" ifconfig="inkl_googletagmanager/datalayer_customer/email_sha1">
-				<type>skin_js</type>
-				<name>js/googletagmanager/customer/emailSha1.js</name>
-				<params/>
-			</action>
-
 		</reference>
 		
 	</default>
