@@ -10,6 +10,11 @@ class Inkl_GoogleTagManager_Model_DataLayer_Global_PageType
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
+		if (!$this->isEnabled())
+		{
+			return;
+		}
+
 		$pageType = $this->determine();
 		if ($pageType)
 		{
@@ -34,6 +39,9 @@ class Inkl_GoogleTagManager_Model_DataLayer_Global_PageType
 		return 'other';
 	}
 
-
+	private function isEnabled()
+	{
+		return Mage::helper('inkl_googletagmanager/config_dataLayer_global')->isPageTypeEnabled();
+	}
 
 }

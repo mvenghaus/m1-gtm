@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Catalog_SearchProducts
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!Mage::helper('inkl_googletagmanager/route')->isSearch())
+		if (!$this->isEnabled() || !Mage::helper('inkl_googletagmanager/route')->isSearch())
 		{
 			return;
 		}
@@ -37,6 +37,11 @@ class Inkl_GoogleTagManager_Model_DataLayer_Catalog_SearchProducts
 		}
 
 		return $searchProducts;
+	}
+
+	private function isEnabled()
+	{
+		return Mage::helper('inkl_googletagmanager/config_dataLayer_catalog')->isSearchProductsEnabled();
 	}
 
 }

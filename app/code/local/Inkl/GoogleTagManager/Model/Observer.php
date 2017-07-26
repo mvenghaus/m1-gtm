@@ -6,6 +6,13 @@ use Inkl\GoogleTagManager\Schema\Id;
 class Inkl_GoogleTagManager_Model_Observer
 {
 
+	public function controller_action_layout_generate_blocks_after(Varien_Event_Observer $observer)
+	{
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_event_addToCart')->addAssets();
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_email')->addAssets();
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailSha1')->addAssets();
+	}
+
 	public function controller_front_send_response_before(Varien_Event_Observer $observer)
 	{
 		if (!Mage::helper('inkl_googletagmanager/config_general')->isEnabled())
@@ -32,69 +39,24 @@ class Inkl_GoogleTagManager_Model_Observer
 		$googleTagManager = $observer->getEvent()->getGoogleTagManager();
 
 		/** global */
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_global')->isPageTypeEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_global_pageType')->handle($googleTagManager);
-		}
-
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_global')->isCurrencyCodeEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_global_currencyCode')->handle($googleTagManager);
-		}
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_global_pageType')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_global_currencyCode')->handle($googleTagManager);
 
 		/** catalog */
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_catalog')->isCategoryNameEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_categoryName')->handle($googleTagManager);
-		}
-
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_catalog')->isCategoryProductsEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_categoryProducts')->handle($googleTagManager);
-		}
-
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_catalog')->isSearchKeywordEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_searchKeyword')->handle($googleTagManager);
-		}
-
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_catalog')->isSearchProductsEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_searchProducts')->handle($googleTagManager);
-		}
-
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_catalog')->isCartProductsEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_cartProducts')->handle($googleTagManager);
-		}
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_categoryName')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_categoryProducts')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_searchKeyword')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_searchProducts')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_cartProducts')->handle($googleTagManager);
 
 		/** ecommerce */
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_ecommerce')->isDetailEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_detail')->handle($googleTagManager);
-		}
-
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_ecommerce')->isCartEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_cart')->handle($googleTagManager);
-		}
-
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_ecommerce')->isPurchaseEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_purchase')->handle($googleTagManager);
-		}
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_detail')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_cart')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_ecommerce_purchase')->handle($googleTagManager);
 
 		/** customer */
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_customer')->isCustomerEmailEnabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_email')->handle($googleTagManager);
-		}
-
-		if (Mage::helper('inkl_googletagmanager/config_dataLayer_customer')->isCustomerEmailSha1Enabled())
-		{
-			Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailSha1')->handle($googleTagManager);
-		}
-
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_email')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailSha1')->handle($googleTagManager);
 	}
 
 }

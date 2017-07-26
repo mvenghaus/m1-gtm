@@ -1,17 +1,17 @@
 <?php
 
-class Inkl_GoogleTagManager_Helper_Config_DataLayer_Global extends Mage_Core_Helper_Abstract
+class Inkl_GoogleTagManager_Helper_Config_DataLayer_Global extends Inkl_GoogleTagManager_Helper_Config_General
 {
 	const XML_PATH_PAGE_TYPE = 'inkl_googletagmanager/datalayer_global/page_type';
 	const XML_PATH_CURRENCY_CODE = 'inkl_googletagmanager/datalayer_global/currency_code';
 
 	public function isPageTypeEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_PAGE_TYPE, $storeId);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_PAGE_TYPE, $storeId) : false);
 	}
 
 	public function isCurrencyCodeEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_CURRENCY_CODE, $storeId);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_CURRENCY_CODE, $storeId) : false);
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Inkl_GoogleTagManager_Helper_Config_DataLayer_Ecommerce extends Mage_Core_Helper_Abstract
+class Inkl_GoogleTagManager_Helper_Config_DataLayer_Ecommerce extends Inkl_GoogleTagManager_Helper_Config_General
 {
 	const XML_PATH_DETAIL = 'inkl_googletagmanager/datalayer_ecommerce/detail';
 	const XML_PATH_CART = 'inkl_googletagmanager/datalayer_ecommerce/cart';
@@ -8,16 +8,16 @@ class Inkl_GoogleTagManager_Helper_Config_DataLayer_Ecommerce extends Mage_Core_
 
 	public function isDetailEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_DETAIL, $storeId);
+		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_DETAIL, $storeId) : false);
 	}
 
 	public function isCartEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_CART, $storeId);
+		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_CART, $storeId) : false);
 	}
 
 	public function isPurchaseEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_PURCHASE, $storeId);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_PURCHASE, $storeId) : false);
 	}
 }

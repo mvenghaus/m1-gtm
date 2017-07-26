@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Detail
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!Mage::helper('inkl_googletagmanager/route')->isProduct())
+		if ($this->isEnabled() || !Mage::helper('inkl_googletagmanager/route')->isProduct())
 		{
 			return;
 		}
@@ -34,6 +34,12 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Detail
 	private function getProduct()
 	{
 		return Mage::registry('current_product');
+	}
+
+
+	private function isEnabled()
+	{
+		return Mage::helper('inkl_googletagmanager/config_dataLayer_ecommerce')->isDetailEnabled();
 	}
 
 }

@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Cart
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!Mage::helper('inkl_googletagmanager/route')->isCart())
+		if (!$this->isEnabled() || !Mage::helper('inkl_googletagmanager/route')->isCart())
 		{
 			return;
 		}
@@ -142,5 +142,10 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Cart
 			$cartProductData['name'],
 			$cartProductData['price']
 		]));
+	}
+
+	private function isEnabled()
+	{
+		return Mage::helper('inkl_googletagmanager/config_dataLayer_ecommerce')->isCartEnabled();
 	}
 }

@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!Mage::helper('inkl_googletagmanager/route')->isPurchase())
+		if (!$this->isEnabled() || !Mage::helper('inkl_googletagmanager/route')->isPurchase())
 		{
 			return;
 		}
@@ -58,6 +58,11 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 	private function getOrder()
 	{
 		return Mage::getSingleton('checkout/session')->getLastRealOrder();
+	}
+
+	private function isEnabled()
+	{
+		return Mage::helper('inkl_googletagmanager/config_dataLayer_ecommerce')->isPurchaseEnabled();
 	}
 
 }

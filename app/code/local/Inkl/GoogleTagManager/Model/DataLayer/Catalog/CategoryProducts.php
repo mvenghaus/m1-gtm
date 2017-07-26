@@ -10,7 +10,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Catalog_CategoryProducts
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if (!Mage::helper('inkl_googletagmanager/route')->isCategory())
+		if (!$this->isEnabled() || !Mage::helper('inkl_googletagmanager/route')->isCategory())
 		{
 			return;
 		}
@@ -37,6 +37,12 @@ class Inkl_GoogleTagManager_Model_DataLayer_Catalog_CategoryProducts
 		}
 
 		return $categoryProducts;
+	}
+
+
+	private function isEnabled()
+	{
+		return Mage::helper('inkl_googletagmanager/config_dataLayer_catalog')->isCategoryProductsEnabled();
 	}
 
 }

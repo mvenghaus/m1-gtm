@@ -1,6 +1,6 @@
 <?php
 
-class Inkl_GoogleTagManager_Helper_Config_DataLayer_Catalog extends Mage_Core_Helper_Abstract
+class Inkl_GoogleTagManager_Helper_Config_DataLayer_Catalog extends Inkl_GoogleTagManager_Helper_Config_General
 {
 	const XML_PATH_CATEGORY_NAME = 'inkl_googletagmanager/datalayer_catalog/category_name';
 	const XML_PATH_CATEGORY_PRODUCTS = 'inkl_googletagmanager/datalayer_catalog/category_products';
@@ -10,27 +10,27 @@ class Inkl_GoogleTagManager_Helper_Config_DataLayer_Catalog extends Mage_Core_He
 
 	public function isCategoryNameEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_CATEGORY_NAME, $storeId);
+		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_CATEGORY_NAME, $storeId) : false);
 	}
 
 	public function isCategoryProductsEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_CATEGORY_PRODUCTS, $storeId);
+		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_CATEGORY_PRODUCTS, $storeId) : false);
 	}
 
 	public function isSearchKeywordEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_SEARCH_KEYWORD, $storeId);
+		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_SEARCH_KEYWORD, $storeId) : false);
 	}
 
 	public function isSearchProductsEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_SEARCH_PRODUCTS, $storeId);
+		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_SEARCH_PRODUCTS, $storeId) : false);
 	}
 
 	public function isCartProductsEnabled($storeId = null)
 	{
-		return Mage::getStoreConfigFlag(self::XML_PATH_CART_PRODUCTS, $storeId);
+		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_CART_PRODUCTS, $storeId) : false);
 	}
 
 }
