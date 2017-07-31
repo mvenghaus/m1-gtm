@@ -1,7 +1,13 @@
 function gtmEventAddToCart(callback) {
+	
+	var gtmTimeout = setTimeout(callback, 2000);
+	
     dataLayer.push({
         'event': 'addToCartClick',
-        'eventCallback': callback
+        'eventCallback': function () {
+			clearTimeout(gtmTimeout);
+			callback();
+		}
     });
 }
 
