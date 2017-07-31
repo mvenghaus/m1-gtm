@@ -1,7 +1,7 @@
 function gtmEventAddToCart(callback) {
-	
+
 	var gtmTimeout = setTimeout(callback, 2000);
-	
+
     dataLayer.push({
         'event': 'addToCartClick',
         'eventCallback': function () {
@@ -11,7 +11,7 @@ function gtmEventAddToCart(callback) {
     });
 }
 
-document.observe("dom:loaded", function () {
+Event.observe(window, 'load', function() {
 
     if (typeof productAddToCartForm !== 'undefined') {
         productAddToCartForm.baseSubmit = productAddToCartForm.submit;
