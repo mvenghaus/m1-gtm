@@ -10,11 +10,10 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Detail
 	 */
 	public function handle(GoogleTagManager $googleTagManager)
 	{
-		if ($this->isEnabled() || !Mage::helper('inkl_googletagmanager/route')->isProduct())
+		if (!$this->isEnabled() || !Mage::helper('inkl_googletagmanager/route')->isProduct())
 		{
 			return;
 		}
-
 		$product = $this->getProduct();
 
 		$ecommerce = [

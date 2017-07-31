@@ -7,11 +7,11 @@ class Inkl_GoogleTagManager_Helper_Config_DataLayer_Customer extends Inkl_Google
 
 	public function isCustomerEmailEnabled($storeId = null)
 	{
-		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_EMAIL, $storeId) : false);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_EMAIL, $storeId) : false);
 	}
 
 	public function isCustomerEmailSha1Enabled($storeId = null)
 	{
-		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_EMAIL_SHA1, $storeId) : false);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_EMAIL_SHA1, $storeId) : false);
 	}
 }

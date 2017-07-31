@@ -10,7 +10,10 @@ class Inkl_GoogleTagManager_Model_DataLayer_Event_AddToCart
 			return;
 		}
 
-		Mage::app()->getLayout()->getBlock('head')->addItem('skin_js', 'js/googletagmanager/event/addToCart.js');
+		if ($headBlock = Mage::app()->getLayout()->getBlock('head'))
+		{
+			$headBlock->addItem('skin_js', 'js/googletagmanager/event/addToCart.js');
+		}
 	}
 
 	public function isEnabled()

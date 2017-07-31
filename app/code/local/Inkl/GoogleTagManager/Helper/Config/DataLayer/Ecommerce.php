@@ -8,12 +8,12 @@ class Inkl_GoogleTagManager_Helper_Config_DataLayer_Ecommerce extends Inkl_Googl
 
 	public function isDetailEnabled($storeId = null)
 	{
-		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_DETAIL, $storeId) : false);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_DETAIL, $storeId) : false);
 	}
 
 	public function isCartEnabled($storeId = null)
 	{
-		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_CART, $storeId) : false);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_CART, $storeId) : false);
 	}
 
 	public function isPurchaseEnabled($storeId = null)

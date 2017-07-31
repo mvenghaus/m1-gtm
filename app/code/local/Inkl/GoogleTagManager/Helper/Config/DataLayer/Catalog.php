@@ -10,27 +10,27 @@ class Inkl_GoogleTagManager_Helper_Config_DataLayer_Catalog extends Inkl_GoogleT
 
 	public function isCategoryNameEnabled($storeId = null)
 	{
-		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_CATEGORY_NAME, $storeId) : false);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_CATEGORY_NAME, $storeId) : false);
 	}
 
 	public function isCategoryProductsEnabled($storeId = null)
 	{
-		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_CATEGORY_PRODUCTS, $storeId) : false);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_CATEGORY_PRODUCTS, $storeId) : false);
 	}
 
 	public function isSearchKeywordEnabled($storeId = null)
 	{
-		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_SEARCH_KEYWORD, $storeId) : false);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_SEARCH_KEYWORD, $storeId) : false);
 	}
 
 	public function isSearchProductsEnabled($storeId = null)
 	{
-		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_SEARCH_PRODUCTS, $storeId) : false);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_SEARCH_PRODUCTS, $storeId) : false);
 	}
 
 	public function isCartProductsEnabled($storeId = null)
 	{
-		return ($this->isEnabled($storeId) ?  Mage::getStoreConfigFlag(self::XML_PATH_CART_PRODUCTS, $storeId) : false);
+		return ($this->isEnabled($storeId) ? Mage::getStoreConfigFlag(self::XML_PATH_CART_PRODUCTS, $storeId) : false);
 	}
 
 }

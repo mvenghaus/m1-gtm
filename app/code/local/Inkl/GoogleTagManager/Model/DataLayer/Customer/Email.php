@@ -12,7 +12,10 @@ class Inkl_GoogleTagManager_Model_DataLayer_Customer_Email
 			return;
 		}
 
-		Mage::app()->getLayout()->getBlock('head')->addItem('skin_js', 'js/googletagmanager/customer/email.js');
+		if ($headBlock = Mage::app()->getLayout()->getBlock('head'))
+		{
+			$headBlock->addItem('skin_js', 'js/googletagmanager/customer/email.js');
+		}
 	}
 
 	/**
