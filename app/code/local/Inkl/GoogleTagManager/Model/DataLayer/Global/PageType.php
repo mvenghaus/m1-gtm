@@ -25,7 +25,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Global_PageType
 	/**
 	 * @return string
 	 */
-	private function determine()
+	protected function determine()
 	{
 		$routeHelper = Mage::helper('inkl_googletagmanager/route');
 
@@ -33,13 +33,13 @@ class Inkl_GoogleTagManager_Model_DataLayer_Global_PageType
 		if ($routeHelper->isCategory()) return 'category';
 		if ($routeHelper->isSearch()) return 'searchresults';
 		if ($routeHelper->isProduct()) return 'product';
-		if ($routeHelper->isCart() || $routeHelper->isCheckout()) return 'cart';
+		if ($routeHelper->isCart()) return 'cart';
 		if ($routeHelper->isPurchase()) return 'purchase';
 
 		return 'other';
 	}
 
-	private function isEnabled()
+	protected function isEnabled()
 	{
 		return Mage::helper('inkl_googletagmanager/config_dataLayer_global')->isPageTypeEnabled();
 	}
