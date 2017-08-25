@@ -42,6 +42,7 @@ class Inkl_GoogleTagManager_Model_Observer
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_global_pageType')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_global_pageTypeEx')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_global_currencyCode')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_global_localeCode')->handle($googleTagManager);
 
 		/** catalog */
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_categoryName')->handle($googleTagManager);
