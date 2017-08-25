@@ -83,6 +83,7 @@
             <datalayer_global>
                 <page_type>1</page_type>
                 <currency_code>1</currency_code>
+                <locale_code>1</locale_code>
             </datalayer_global>
             <datalayer_catalog>
                 <category_name>1</category_name>
