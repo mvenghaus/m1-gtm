@@ -22,6 +22,12 @@ class Inkl_GoogleTagManager_Model_DataLayer_Catalog_CategoryProducts
 
 	private function getCategoryProducts()
 	{
+		$category = Mage::registry('current_category');
+		if ($category->getDisplayMode() == 'PAGE')
+		{
+			return [];
+		}
+
 		/** @var Mage_Catalog_Block_Product_List $productListBlock */
 		$productListBlock = Mage::app()->getLayout()->getBlock('product_list');
 		if (!$productListBlock) return [];
