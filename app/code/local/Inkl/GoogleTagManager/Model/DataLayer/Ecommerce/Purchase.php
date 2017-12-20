@@ -26,7 +26,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 		$googleTagManager->addDataLayerVariable('ecommerce', $ecommerce, 'ecommerce_purchase');
 	}
 
-	private function getActionField(Mage_Sales_Model_Order $order)
+	protected function getActionField(Mage_Sales_Model_Order $order)
 	{
 		return [
 			'id' => $order->getIncrementId(),
@@ -38,7 +38,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 		];
 	}
 
-	private function getProducts(Mage_Sales_Model_Order $order)
+	protected function getProducts(Mage_Sales_Model_Order $order)
 	{
 		$products = [];
 		/** @var Mage_Sales_Model_Order_Item $orderItem */
@@ -55,12 +55,12 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Purchase
 		return $products;
 	}
 
-	private function getOrder()
+	protected function getOrder()
 	{
 		return Mage::getSingleton('checkout/session')->getLastRealOrder();
 	}
 
-	private function isEnabled()
+	protected function isEnabled()
 	{
 		return Mage::helper('inkl_googletagmanager/config_dataLayer_ecommerce')->isPurchaseEnabled();
 	}
