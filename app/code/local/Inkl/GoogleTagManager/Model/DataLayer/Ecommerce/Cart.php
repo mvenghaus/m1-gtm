@@ -115,7 +115,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Ecommerce_Cart
 			$cartProductData = [
 				'id' => Mage::helper('inkl_googletagmanager/product')->getSkuById($quoteItem->getProductId()),
 				'name' => $quoteItem->getName(),
-				'price' => round($quoteItem->getPriceInclTax(), 2),
+				'price' => round($quoteItem->getPrice(), 2),
 				'quantity' => 0
 			];
 

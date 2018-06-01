@@ -15,7 +15,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Catalog_SearchProducts
 			return;
 		}
 
-		$searchProducts = $this->getsearchProducts();
+		$searchProducts = $this->getSearchProducts();
 
 		$googleTagManager->addDataLayerVariable('searchProducts', $searchProducts);
 	}
@@ -32,7 +32,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Catalog_SearchProducts
 			$searchProducts[] = [
 				'id' => $product->getSku(),
 				'name' => $product->getName(),
-				'price' => round($product->getFinalPrice(), 2),
+				'price' => round(Mage::helper('tax')->getPrice($product, $product->getFinalPrice(), false ), 2),
 			];
 		}
 
