@@ -100,6 +100,7 @@
             <datalayer_customer>
                 <email>1</email>
                 <email_sha1>1</email_sha1>
+                <email_md5>1</email_md5>
             </datalayer_customer>
             <datalayer_event>
                 <addtocart>1</addtocart>
