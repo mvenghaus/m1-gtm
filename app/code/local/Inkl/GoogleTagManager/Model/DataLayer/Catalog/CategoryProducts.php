@@ -38,7 +38,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Catalog_CategoryProducts
 			$categoryProducts[] = [
 				'id' => $product->getSku(),
 				'name' => $product->getName(),
-				'price' => round($product->getFinalPrice(), 2),
+				'price' => round(Mage::helper('tax')->getPrice($product, $product->getFinalPrice(), false ), 2),
 			];
 		}
 
