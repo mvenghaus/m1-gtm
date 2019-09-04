@@ -50,6 +50,7 @@ class Inkl_GoogleTagManager_Model_Observer
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_categoryProducts')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_searchKeyword')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_searchProducts')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_searchNumResults')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_catalog_cartProducts')->handle($googleTagManager);
 
 		/** ecommerce */
