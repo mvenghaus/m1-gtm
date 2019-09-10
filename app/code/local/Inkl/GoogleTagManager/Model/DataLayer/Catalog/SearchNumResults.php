@@ -15,7 +15,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Catalog_SearchNumResults
 			return;
 		}
 
-		$this->googleTagManager->addDataLayerVariable('searchNumResults', $this->getSearchNumResults());
+		$googleTagManager->addDataLayerVariable('searchNumResults', $this->getSearchNumResults());
 	}
 
 	private function getSearchNumResults()
