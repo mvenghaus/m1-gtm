@@ -11,6 +11,7 @@ class Inkl_GoogleTagManager_Model_Observer
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_event_addToCart')->addAssets();
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_email')->addAssets();
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailSha1')->addAssets();
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailSha256')->addAssets();
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailMd5')->addAssets();
 	}
 
@@ -61,6 +62,7 @@ class Inkl_GoogleTagManager_Model_Observer
 		/** customer */
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_email')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailSha1')->handle($googleTagManager);
+		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailSha256')->handle($googleTagManager);
 		Mage::getSingleton('inkl_googletagmanager/dataLayer_customer_emailMd5')->handle($googleTagManager);
 	}
 
