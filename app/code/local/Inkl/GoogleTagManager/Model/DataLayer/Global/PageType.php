@@ -35,6 +35,7 @@ class Inkl_GoogleTagManager_Model_DataLayer_Global_PageType
 		if ($routeHelper->isProduct()) return 'product';
 		if ($routeHelper->isCart()) return 'cart';
 		if ($routeHelper->isPurchase()) return 'purchase';
+		if ($routeHelper->isNotFound()) return 'notfound';
 
 		return 'other';
 	}

@@ -41,7 +41,7 @@ class Inkl_GoogleTagManager_Helper_Route extends Mage_Core_Helper_Abstract
 
 	public function isCheckout()
 	{
-        return $this->getPath() === 'checkout/onepage/index'
+		return $this->getPath() === 'checkout/onepage/index'
 			|| $this->getPath() === 'mastercheckout/index/index'
 			|| $this->getPath() === 'onestepcheckout/index/index';
 	}
@@ -49,6 +49,11 @@ class Inkl_GoogleTagManager_Helper_Route extends Mage_Core_Helper_Abstract
 	public function isPurchase()
 	{
 		return ($this->getPath() === 'checkout/onepage/success');
+	}
+
+	public function isNotFound()
+	{
+		return ($this->getPath() === 'cms/index/noRoute');
 	}
 
 }
